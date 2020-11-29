@@ -1,479 +1,511 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Twitter -->
-    <meta name="twitter:site" content="@themepixels">
-    <meta name="twitter:creator" content="@themepixels">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Starlight">
-    <meta name="twitter:description" content="Premium Quality and Responsive UI for Dashboard.">
-    <meta name="twitter:image" content="http://themepixels.me/starlight/img/starlight-social.png">
-
-    <!-- Facebook -->
-    <meta property="og:url" content="http://themepixels.me/starlight">
-    <meta property="og:title" content="Starlight">
-    <meta property="og:description" content="Premium Quality and Responsive UI for Dashboard.">
-
-    <meta property="og:image" content="http://themepixels.me/starlight/img/starlight-social.png">
-    <meta property="og:image:secure_url" content="http://themepixels.me/starlight/img/starlight-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
-
-    <!-- Meta -->
-    <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
-    <meta name="author" content="ThemePixels">
-
-    <title>TRIMATRIC Ecommerce Admin Panel</title>
-
-    <!-- vendor css -->
-    <link href="{{ asset('/backend/lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('/backend/lib/Ionicons/css/ionicons.css') }}" rel="stylesheet">
-    <link href="{{ asset('/backend/lib/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet">
-    <link href="{{ asset('/backend/lib/rickshaw/rickshaw.min.css') }}" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TRIMATRIC | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/jqvmap/jqvmap.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('/backend/dist/css/adminlte.min.css') }}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/daterangepicker/daterangepicker.css') }}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/summernote/summernote-bs4.css') }}">
+    <!--   toastr---->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
-
-    <!-- Data Table css -->
-    <link href="{{ asset('/backend/lib/highlightjs/github.css') }}" rel="stylesheet">
-    <link href="{{ asset('/backend/lib/datatables/jquery.dataTables.css') }}" rel="stylesheet">
-    <link href="{{ asset('/backend/lib/select2/css/select2.min.css') }}" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-
-    <!-- Starlight CSS -->
-    <link rel="stylesheet" href="{{ asset('/backend/css/starlight.css') }}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body>
-    @guest
+@guest()
 
-    @else
-        <!-- ########## START: LEFT PANEL ########## -->
-        <div class="sl-logo"><a href="">TRIMATRIC</a></div>
-        <div class="sl-sideleft">
+@else
+<body class="hold-transition sidebar-mini layout-fixed">
 
-            <div class="sl-sideleft-menu">
-                <a href="{{ url('admin/home') }}" class="sl-menu-link active">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
-                        <span class="menu-item-label">Dashboard</span>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <a href="#" class="sl-menu-link">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
-                        <span class="menu-item-label">Category</span>
-                        <i class="menu-item-arrow fa fa-angle-down"></i>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <ul class="sl-menu-sub nav flex-column">
-                    <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Category</a></li>
-                    <li class="nav-item"><a href="chart-flot.html" class="nav-link">Sub Category</a></li>
-                    <li class="nav-item"><a href="chart-chartjs.html" class="nav-link">Brand</a></li>
-                </ul>
-                <a href="#" class="sl-menu-link">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
-                        <span class="menu-item-label">Forms</span>
-                        <i class="menu-item-arrow fa fa-angle-down"></i>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <ul class="sl-menu-sub nav flex-column">
-                    <li class="nav-item"><a href="form-elements.html" class="nav-link">Form Elements</a></li>
-                    <li class="nav-item"><a href="form-layouts.html" class="nav-link">Form Layouts</a></li>
-                    <li class="nav-item"><a href="form-validation.html" class="nav-link">Form Validation</a></li>
-                    <li class="nav-item"><a href="form-wizards.html" class="nav-link">Form Wizards</a></li>
-                    <li class="nav-item"><a href="form-editor-text.html" class="nav-link">Text Editor</a></li>
-                </ul>
-                <a href="#" class="sl-menu-link">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
-                        <span class="menu-item-label">UI Elements</span>
-                        <i class="menu-item-arrow fa fa-angle-down"></i>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <ul class="sl-menu-sub nav flex-column">
-                    <li class="nav-item"><a href="accordion.html" class="nav-link">Accordion</a></li>
-                    <li class="nav-item"><a href="alerts.html" class="nav-link">Alerts</a></li>
-                    <li class="nav-item"><a href="buttons.html" class="nav-link">Buttons</a></li>
-                    <li class="nav-item"><a href="cards.html" class="nav-link">Cards</a></li>
-                    <li class="nav-item"><a href="icons.html" class="nav-link">Icons</a></li>
-                    <li class="nav-item"><a href="modal.html" class="nav-link">Modal</a></li>
-                    <li class="nav-item"><a href="navigation.html" class="nav-link">Navigation</a></li>
-                    <li class="nav-item"><a href="pagination.html" class="nav-link">Pagination</a></li>
-                    <li class="nav-item"><a href="popups.html" class="nav-link">Tooltip &amp; Popover</a></li>
-                    <li class="nav-item"><a href="progress.html" class="nav-link">Progress</a></li>
-                    <li class="nav-item"><a href="spinners.html" class="nav-link">Spinners</a></li>
-                    <li class="nav-item"><a href="typography.html" class="nav-link">Typography</a></li>
-                </ul>
-                <a href="#" class="sl-menu-link">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
-                        <span class="menu-item-label">Tables</span>
-                        <i class="menu-item-arrow fa fa-angle-down"></i>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <ul class="sl-menu-sub nav flex-column">
-                    <li class="nav-item"><a href="table-basic.html" class="nav-link">Basic Table</a></li>
-                    <li class="nav-item"><a href="table-datatable.html" class="nav-link">Data Table</a></li>
-                </ul>
-                <a href="#" class="sl-menu-link">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon icon ion-ios-navigate-outline tx-24"></i>
-                        <span class="menu-item-label">Maps</span>
-                        <i class="menu-item-arrow fa fa-angle-down"></i>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <ul class="sl-menu-sub nav flex-column">
-                    <li class="nav-item"><a href="map-google.html" class="nav-link">Google Maps</a></li>
-                    <li class="nav-item"><a href="map-vector.html" class="nav-link">Vector Maps</a></li>
-                </ul>
-                <a href="mailbox.html" class="sl-menu-link">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
-                        <span class="menu-item-label">Mailbox</span>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <a href="#" class="sl-menu-link">
-                    <div class="sl-menu-item">
-                        <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>
-                        <span class="menu-item-label">Pages</span>
-                        <i class="menu-item-arrow fa fa-angle-down"></i>
-                    </div><!-- menu-item -->
-                </a><!-- sl-menu-link -->
-                <ul class="sl-menu-sub nav flex-column">
-                    <li class="nav-item"><a href="blank.html" class="nav-link">Blank Page</a></li>
-                    <li class="nav-item"><a href="page-signin.html" class="nav-link">Signin Page</a></li>
-                    <li class="nav-item"><a href="page-signup.html" class="nav-link">Signup Page</a></li>
-                    <li class="nav-item"><a href="page-notfound.html" class="nav-link">404 Page Not Found</a></li>
-                </ul>
-            </div><!-- sl-sideleft-menu -->
+<div class="wrapper">
 
-            <br>
-        </div><!-- sl-sideleft -->
-        <!-- ########## END: LEFT PANEL ########## -->
-
-        <!-- ########## START: HEAD PANEL ########## -->
-        <div class="sl-header">
-            <div class="sl-header-left">
-                <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i
-                            class="icon ion-navicon-round"></i></a></div>
-                <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i
-                            class="icon ion-navicon-round"></i></a></div>
-            </div><!-- sl-header-left -->
-            <div class="sl-header-right">
-                <nav class="nav">
-                    <div class="dropdown">
-                        <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-                            <span class="logged-name">Jane<span class="hidden-md-down"> Doe</span></span>
-                            <img src="{{ asset('/backend/img/img3.jpg') }}" class="wd-32 rounded-circle" alt="">
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-header wd-200">
-                            <ul class="list-unstyled user-profile-nav">
-                                <li><a href=""><i class="icon ion-ios-person-outline"></i> Edit Profile</a></li>
-                                <li><a href="{{ route('admin.password.change') }}"><i class="icon ion-ios-gear-outline"></i> Settings</a></li>
-                                <li><a href="{{ route('admin.logout') }}"><i class="icon ion-power"></i> Sign Out</a></li>
-                            </ul>
-                        </div><!-- dropdown-menu -->
-                    </div><!-- dropdown -->
-                </nav>
-                <div class="navicon-right">
-                    <a id="btnRightMenu" href="" class="pos-relative">
-                        <i class="icon ion-ios-bell-outline"></i>
-                        <!-- start: if statement -->
-                        <span class="square-8 bg-danger"></span>
-                        <!-- end: if statement -->
-                    </a>
-                </div><!-- navicon-right -->
-            </div><!-- sl-header-right -->
-        </div><!-- sl-header -->
-        <!-- ########## END: HEAD PANEL ########## -->
-
-        <!-- ########## START: RIGHT PANEL ########## -->
-        <div class="sl-sideright">
-            <ul class="nav nav-tabs nav-fill sidebar-tabs" role="tablist">
+    <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" role="tab" href="#messages">Messages (2)</a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" role="tab" href="#notifications">Notifications (8)</a>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="index3.html" class="nav-link">Home</a>
                 </li>
-            </ul><!-- sidebar-tabs -->
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Contact</a>
+                </li>
+            </ul>
 
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div class="tab-pane pos-absolute a-0 mg-t-60 active" id="messages" role="tabpanel">
-                    <div class="media-list">
-                        <!-- loop starts here -->
-                        <a href="" class="media-list-link">
-                            <div class="media">
-                                <img src="{{ asset('/backend/img/img3.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Donna Seay</p>
-                                    <span class="d-block tx-11 tx-gray-500">2 minutes ago</span>
-                                    <p class="tx-13 mg-t-10 mg-b-0">A wonderful serenity has taken possession of my entire
-                                        soul, like these sweet mornings of spring.</p>
-                                </div>
-                            </div><!-- media -->
-                        </a>
-                        <!-- loop ends here -->
-                        <a href="" class="media-list-link">
-                            <div class="media">
-                                <img src="{{ asset('/backend/img/img4.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Samantha Francis</p>
-                                    <span class="d-block tx-11 tx-gray-500">3 hours ago</span>
-                                    <p class="tx-13 mg-t-10 mg-b-0">My entire soul, like these sweet mornings of spring.</p>
-                                </div>
-                            </div><!-- media -->
-                        </a>
-                        <a href="" class="media-list-link">
-                            <div class="media">
-                                <img src="{{ asset('/backend/img/img7.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Robert Walker</p>
-                                    <span class="d-block tx-11 tx-gray-500">5 hours ago</span>
-                                    <p class="tx-13 mg-t-10 mg-b-0">I should be incapable of drawing a single stroke at the
-                                        present moment...</p>
-                                </div>
-                            </div><!-- media -->
-                        </a>
-                        <a href="" class="media-list-link">
-                            <div class="media">
-                                <img src="{{ asset('/backend/img/img5.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Larry Smith</p>
-                                    <span class="d-block tx-11 tx-gray-500">Yesterday, 8:34pm</span>
-
-                                    <p class="tx-13 mg-t-10 mg-b-0">When, while the lovely valley teems with vapour around
-                                        me, and the meridian sun strikes...</p>
-                                </div>
-                            </div><!-- media -->
-                        </a>
-                        <a href="" class="media-list-link">
-                            <div class="media">
-                                <img src="{{ asset('/backend/img/img3.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="mg-b-0 tx-medium tx-gray-800 tx-13">Donna Seay</p>
-                                    <span class="d-block tx-11 tx-gray-500">Jan 23, 2:32am</span>
-                                    <p class="tx-13 mg-t-10 mg-b-0">A wonderful serenity has taken possession of my entire
-                                        soul, like these sweet mornings of spring.</p>
-                                </div>
-                            </div><!-- media -->
-                        </a>
-                    </div><!-- media-list -->
-                    <div class="pd-15">
-                        <a href=""
-                           class="btn btn-secondary btn-block bd-0 rounded-0 tx-10 tx-uppercase tx-mont tx-medium tx-spacing-2">View
-                            More Messages</a>
+            <!-- SEARCH FORM -->
+            <form class="form-inline ml-3">
+                <div class="input-group input-group-sm">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-navbar" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
-                </div><!-- #messages -->
+                </div>
+            </form>
 
-                <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="notifications" role="tabpanel">
-                    <div class="media-list">
-                        <!-- loop starts here -->
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img8.jpg') }}" class="wd-40 rounded-circle" alt="">
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-comments"></i>
+                        <span class="badge badge-danger navbar-badge">3</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="{{ asset('/backend/dist/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Suzzeth
-                                            Bungaos</strong> tagged you and 18 others in a post.</p>
-                                    <span class="tx-12">October 03, 2017 8:45am</span>
+                                    <h3 class="dropdown-item-title">
+                                        Brad Diesel
+                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">Call me whenever you can...</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
-                            </div><!-- media -->
+                            </div>
+                            <!-- Message End -->
                         </a>
-                        <!-- loop ends here -->
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img9.jpg') }}" class="wd-40 rounded-circle" alt="">
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="{{ asset('/backend/dist/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Mellisa
-                                            Brown</strong> appreciated your work <strong class="tx-medium tx-gray-800">The
-                                            Social Network</strong></p>
-                                    <span class="tx-12">October 02, 2017 12:44am</span>
+                                    <h3 class="dropdown-item-title">
+                                        John Pierce
+                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">I got your message bro</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
-                            </div><!-- media -->
+                            </div>
+                            <!-- Message End -->
                         </a>
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img10.jpg') }}" class="wd-40 rounded-circle" alt="">
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <!-- Message Start -->
+                            <div class="media">
+                                <img src="{{ asset('/backend/dist/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700">20+ new items added are for sale in your <strong
-                                            class="tx-medium tx-gray-800">Sale Group</strong></p>
-                                    <span class="tx-12">October 01, 2017 10:20pm</span>
+                                    <h3 class="dropdown-item-title">
+                                        Nora Silvester
+                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                    </h3>
+                                    <p class="text-sm">The subject goes here</p>
+                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
-                            </div><!-- media -->
+                            </div>
+                            <!-- Message End -->
                         </a>
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img5.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Julius
-                                            Erving</strong> wants to connect with you on your conversation with <strong
-                                            class="tx-medium tx-gray-800">Ronnie Mara</strong></p>
-                                    <span class="tx-12">October 01, 2017 6:08pm</span>
-                                </div>
-                            </div><!-- media -->
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                    </div>
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
                         </a>
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img8.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Suzzeth
-                                            Bungaos</strong> tagged you and 12 others in a post.</p>
-                                    <span class="tx-12">September 27, 2017 6:45am</span>
-                                </div>
-                            </div><!-- media -->
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img10.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700">10+ new items added are for sale in your <strong
-                                            class="tx-medium tx-gray-800">Sale Group</strong></p>
-                                    <span class="tx-12">September 28, 2017 11:30pm</span>
-                                </div>
-                            </div><!-- media -->
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
                         </a>
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img9.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Mellisa
-                                            Brown</strong> appreciated your work <strong class="tx-medium tx-gray-800">The
-                                            Great Pyramid</strong></p>
-                                    <span class="tx-12">September 26, 2017 11:01am</span>
-                                </div>
-                            </div><!-- media -->
-                        </a>
-                        <a href="" class="media-list-link read">
-                            <div class="media pd-x-20 pd-y-15">
-                                <img src="{{ asset('/backend/img/img5.jpg') }}" class="wd-40 rounded-circle" alt="">
-                                <div class="media-body">
-                                    <p class="tx-13 mg-b-0 tx-gray-700"><strong class="tx-medium tx-gray-800">Julius
-                                            Erving</strong> wants to connect with you on your conversation with <strong
-                                            class="tx-medium tx-gray-800">Ronnie Mara</strong></p>
-                                    <span class="tx-12">September 23, 2017 9:19pm</span>
-                                </div>
-                            </div><!-- media -->
-                        </a>
-                    </div><!-- media-list -->
-                </div><!-- #notifications -->
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
 
-            </div><!-- tab-content -->
-        </div><!-- sl-sideright -->
-        <!-- ########## END: RIGHT PANEL ########## --->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link">
+                <img src="{{ asset('/backend/dist/img/Trimatriclogo.jpg') }}" alt="Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">TRIMATRIC</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="{{ asset('/backend/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/home') }}" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>
+                                    Category
+                                    <i class="fas fa-angle-left right"></i>
+    {{--                                <span class="badge badge-info right">6</span>--}}
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('categories') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Category</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>SubCategory</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/layout/boxed.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Brands</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Charts
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/charts/chartjs.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>ChartJS</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/flot.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Flot</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Inline</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tree"></i>
+                                <p>
+                                    UI Elements
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/UI/general.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>General</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/icons.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Icons</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/buttons.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Buttons</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/sliders.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sliders</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/modals.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Modals & Alerts</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/navbar.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Navbar & Tabs</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/timeline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Timeline</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/UI/ribbons.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ribbons</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Forms
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/forms/general.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>General Elements</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/forms/advanced.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Advanced Elements</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/forms/editors.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Editors</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/forms/validation.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Validation</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Tables
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="pages/tables/simple.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Simple Tables</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/tables/data.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>DataTables</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/tables/jsgrid.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>jsGrid</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.logout') }}" class="nav-link">
+                                <i class="fas fa-sign-out-alt nav-icon"></i>
+                                <p>Log Out</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
 
     @endguest
 
     @yield('admin_content')
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
 
-    <script src="{{ asset('/backend/lib/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('/backend/lib/popper.js/popper.js') }}"></script>
-    <script src="{{ asset('/backend/lib/bootstrap/bootstrap.js') }}"></script>
-    <script src="{{ asset('/backend/lib/jquery-ui/jquery-ui.js') }}"></script>
-    <script src="{{ asset('/backend/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
-    <script src="{{ asset('/backend/lib/jquery.sparkline.bower/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('/backend/lib/d3/d3.js') }}"></script>
-    <script src="{{ asset('/backend/lib/rickshaw/rickshaw.min.js') }}"></script>
-    <script src="{{ asset('/backend/lib/chart.js/Chart.js') }}"></script>
-    <script src="{{ asset('/backend/lib/Flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('/backend/lib/Flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('/backend/lib/Flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('/backend/lib/flot-spline/jquery.flot.spline.js') }}"></script>
+<!-- jQuery -->
+<script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('/backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- ChartJS -->
+<script src="{{ asset('/backend/plugins/chart.js/Chart.min.js') }}"></script>
+<!-- Sparkline -->
+<script src="{{ asset('/backend/plugins/sparklines/sparkline.js') }}"></script>
+<!-- JQVMap -->
+<script src="{{ asset('/backend/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+<script src="{{ asset('/backend/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ asset('/backend/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+<!-- daterangepicker -->
+<script src="{{ asset('/backend/plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('/backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{ asset('/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+<!-- Summernote -->
+<script src="{{ asset('/backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('/backend/dist/js/adminlte.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('/backend/dist/js/pages/dashboard.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('/backend/dist/js/demo.js') }}"></script>
 
-    <script src="{{ asset('/backend/js/starlight.js') }}"></script>
-    <script src="{{ asset('/backend/js/ResizeSensor.js') }}"></script>
-    <script src="{{ asset('/backend/js/dashboard.js') }}"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<!-- DataTables -->
+<script src="{{ asset('/backend/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
-    {{--    Data Table JS--}}
-    <script src="{{ asset('/backend/lib/highlightjs/highlight.pack.js') }}"></script>
-    <script src="{{ asset('/backend/lib/datatables/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('/backend/lib/datatables-responsive/dataTables.responsive.js') }}"></script>
-    <script src="{{ asset('/backend/lib/select2/js/select2.min.js') }}"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+        });
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
 
-    <script>
-        $(function(){
-            'use strict';
+{{--Sweet Alart--}}
+<script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
 
-            $('#datatable1').DataTable({
-                responsive: true,
-                language: {
-                    searchPlaceholder: 'Search...',
-                    sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
+<script>
+    $(document).on("click", "#delete", function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+        swal({
+            title: "Are you Want to delete?",
+            text: "Once Delete, This will be Permanently Delete!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = link;
+                } else {
+                    swal("Safe Data!");
                 }
             });
+    });
+</script>
 
-            $('#datatable2').DataTable({
-                bLengthChange: true,
-                searching: true,
-                responsive: true,
-            });
-
-            // Select2
-            $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
-
-        });
-    </script>
-
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-
-    <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-    <!-- Main js -->
-    <script src="{{asset('../panel/assets/js/main.js')}}"></script>
-    <script src="{{ asset('/backend/js/starlight.js') }}"></script>
-
-
-    <script>
-        @if(Session::has('messege'))
-        var type = "{{Session::get('alert-type','info')}}"
-        switch (type) {
-            case 'info':
-                toastr.info("{{ Session::get('messege') }}");
-                break;
-            case 'success':
-                toastr.success("{{ Session::get('messege') }}");
-                break;
-            case 'warning':
-                toastr.warning("{{ Session::get('messege') }}");
-                break;
-            case 'error':
-                toastr.error("{{ Session::get('messege') }}");
-                break;
-        }
-        @endif
-    </script>
-
-    <script>
-
-        $(document).on("click", "#delete", function (e) {
-            e.preventDefault();
-            var link = $(this).attr("href");
-            swal({
-                    title: "Are you Want to delete?",
-                    text: "Once Delete, This will be Permanently Delete!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.location.href = link;
-                    } else {
-                        swal("Safe Data!");
-                    }
-                });
-        });
-
-    </script>
+{{--toastr--}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    @if(Session::has('messege'))
+    var type="{{Session::get('alert-type','info')}}"
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
+</script>
 </body>
-
 </html>
