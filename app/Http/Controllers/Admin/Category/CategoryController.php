@@ -17,4 +17,8 @@ class CategoryController extends Controller
         $category = Category::all();
         return view('admin.category.category', compact('category'));
     }
+
+    public function storecategory(Request $request){
+
+    }
 }
