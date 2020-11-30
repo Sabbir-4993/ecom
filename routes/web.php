@@ -31,5 +31,15 @@ Route::get('admin/logout', 'AdminController@logout')->name('admin.logout');
 //Adnin Panel
 //Categories Page
 
-Route::get('admin/categories', 'Admin\Category\CategoryController@category')->name('categories');
-Route::post('admin/store/category', 'Admin\Category\CategoryController@storecategory')->name('store.category');
+Route::get('admin/categories', 'Admin\Category\CategoryController@Category')->name('categories');
+Route::post('admin/store/category', 'Admin\Category\CategoryController@StoreCategory')->name('store.category');
+Route::get('delete/category/{id}', 'Admin\Category\CategoryController@DeleteCategory');
+Route::get('edit/category/{id}', 'Admin\Category\CategoryController@EditCategory');
+Route::post('update/category/{id}', 'Admin\Category\CategoryController@UpdateCategory');
+
+
+//Brand Page
+Route::get('admin/brands', 'Admin\Category\BrandController@Brand')->name('brands');
+Route::post('admin/store/brand', 'Admin\Category\BrandController@StoreBrand')->name('store.brand');
+Route::get('delete/brand/{id}', 'Admin\Category\BrandController@DeleteBrand');
+Route::get('edit/brand/{id}', 'Admin\Category\BrandController@EditBrand');

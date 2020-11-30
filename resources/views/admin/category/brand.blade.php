@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Category Table</h1>
+                        <h1>Brand Table</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ url('/admin/home') }}">Home</a></li>
-                            <li class="breadcrumb-item active">Category List</li>
+                            <li class="breadcrumb-item active">Brand List</li>
                         </ol>
                     </div>
                 </div>
@@ -36,22 +36,24 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Category Name</th>
+                                        <th>Brand Name</th>
+                                        <th>Brand Logo</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
 
-                                    @foreach($category as $key=>$row)
-                                    <tr>
-                                        <td>{{ $key +1 }}</td>
-                                        <td>{{ $row->category_name }}</td>
-                                        <td>
-                                            <a href="{{ URL::to('edit/category/'.$row->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                            <a href="{{ URL::to('delete/category/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
-                                        </td>
-                                    </tr>
+                                    @foreach($brand as $key=>$row)
+                                        <tr>
+                                            <td>{{ $key +1 }}</td>
+                                            <td>{{ $row->brand_name }}</td>
+                                            <td><img src="{{ URL::to($row->brand_logo) }}" height="80px;" width="80px;" alt=""></td>
+                                            <td>
+                                                <a href="{{ URL::to('edit/brand/'.$row->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                                <a href="{{ URL::to('delete/brand/'.$row->id) }}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                                            </td>
+                                        </tr>
                                     @endforeach
 
                                     </tbody>
@@ -59,7 +61,8 @@
                                     <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Category Name</th>
+                                        <th>Brand Name</th>
+                                        <th>Brand Logo</th>
                                         <th>Action</th>
                                     </tr>
                                     </tfoot>
@@ -84,7 +87,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Category Add</h4>
+                    <h4 class="modal-title">Brand Add</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -100,12 +103,16 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{ route('store.category') }}">
+                <form method="POST" action="{{ route('store.brand') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputCategory">Add New</label>
-                            <input type="text" class="form-control" id="exampleInputCategory" placeholder="Enter Category" name="category_name">
+                            <input type="text" class="form-control" id="exampleInputCategory" placeholder="Enter Brand" name="brand_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Brand Logo</label>
+                            <input type="file" class="form-control"  name="brand_logo" id="customFile">
                         </div>
                     </div>
                     <!-- /.card-body -->

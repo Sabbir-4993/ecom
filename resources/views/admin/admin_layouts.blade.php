@@ -218,7 +218,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/layout/boxed.html" class="nav-link">
+                                    <a href="{{ route('brands') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Brands</p>
                                     </a>
@@ -489,20 +489,20 @@
 {{--toastr--}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script>
-    @if(Session::has('messege'))
+    @if(Session::has('message'))
     var type="{{Session::get('alert-type','info')}}"
     switch(type){
         case 'info':
-            toastr.info("{{ Session::get('messege') }}");
+            toastr.info("{{ Session::get('message') }}");
             break;
         case 'success':
-            toastr.success("{{ Session::get('messege') }}");
+            toastr.success("{{ Session::get('message') }}");
             break;
         case 'warning':
-            toastr.warning("{{ Session::get('messege') }}");
+            toastr.warning("{{ Session::get('message') }}");
             break;
         case 'error':
-            toastr.error("{{ Session::get('messege') }}");
+            toastr.error("{{ Session::get('message') }}");
             break;
     }
     @endif
