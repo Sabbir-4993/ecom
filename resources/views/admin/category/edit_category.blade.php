@@ -13,8 +13,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ url('/admin/home') }}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ url('/admin/brands') }}">Brand</a></li>
-                            <li class="breadcrumb-item active">Brand Update</li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/categories') }}">category</a></li>
+                            <li class="breadcrumb-item active">Category Update</li>
                         </ol>
                     </div>
                 </div>
@@ -41,17 +41,18 @@
                                     </div>
                                 @endif
 
-                                <form method="POST" action="{{ url('update/brand/'.$brand->id) }}">
+                                <form method="POST" action="{{ url('update/category/'.$category->id) }}">
                                     @csrf
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="exampleInputCategory">Update Category</label>
-                                            <input type="text" class="form-control" value="{{ $brand->brand_name }}" id="exampleInputCategory" placeholder="Enter Brand" name="category_name">
+                                            <input type="text" class="form-control" value="{{ $category->category_name }}" id="exampleInputCategory" placeholder="Enter Brand" name="category_name">
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
                                     <div class="modal-footer justify-content-between">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"><a
+                                                href="{{ url()->previous() }}">Back</a></button>
                                         <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </form>
